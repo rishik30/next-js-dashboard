@@ -1,6 +1,7 @@
+import { BasePostProps } from "@/app/lib/definitions";
 import PostPreview from "./post-preview";
 
-export default function MoreStories({ posts }) {
+export default function MoreStories({ posts }: {posts: {node: BasePostProps}[]}) {
   return (
     <section>
       <h2 className="mb-8 text-6xl md:text-7xl font-bold tracking-tighter leading-tight">

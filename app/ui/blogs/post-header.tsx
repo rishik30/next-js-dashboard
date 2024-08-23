@@ -9,7 +9,7 @@ export default function PostHeader({
   date,
   author,
   categories,
-}) {
+}: Omit<BasePostProps, 'slug'> & {categories: {edges: {node: {name: string}}[]}}) {
   return (
     <>
       <PostTitle>{title}</PostTitle>

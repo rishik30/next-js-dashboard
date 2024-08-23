@@ -10,6 +10,7 @@ import PostBody from "../ui/blogs/post-body";
 import Tags from "../ui/blogs/tags";
 import SectionSeparator from "../ui/blogs/section-separator";
 import MoreStories from "../ui/blogs/more-stories";
+import { BasePostProps } from "../lib/definitions";
 
 export default async function Post({params}: {params: {slug: string}}) {
   const {posts, post} = await getPostAndMorePosts(params?.slug, false)
@@ -57,5 +58,5 @@ export default async function Post({params}: {params: {slug: string}}) {
 export async function generateStaticParams() {
   const allPosts = await getAllPostsWithSlug();
 
-  return allPosts.edges.map(({ node }) => ({slug: `/${node.slug}`})) || []
+  return allPosts.edges.map(({ node }: {node: BasePostProps}) => ({slug: `/${node.slug}`})) || []
 };
