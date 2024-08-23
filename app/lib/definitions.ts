@@ -86,3 +86,22 @@ export type InvoiceForm = {
   amount: number;
   status: 'pending' | 'paid';
 };
+
+export interface AuthorProp {
+  node: {
+    firstName?: string
+    lastName?: string
+    name?: string
+    avatar: {
+      url: string
+    }
+  }
+}
+
+export interface BasePostProps {
+  title: string
+  date: string
+  excerpt?: string
+  author: AuthorProp
+  slug: string
+}
